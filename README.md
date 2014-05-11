@@ -41,3 +41,5 @@ Download dreamfactory.js and link to it in your html
         });
 
 ```
+<br/>
+Check out your SDK Docs on your DSP for all methods and required fields.
