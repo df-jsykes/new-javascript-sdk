@@ -12,7 +12,7 @@ New Features:
 <br/>
 Useage:
 <br/>
-Requires Jquery
+Requires Jquery<br/>
 Download dreamfactory.js and link to it in your html
 
 ```html
