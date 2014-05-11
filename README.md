@@ -26,10 +26,8 @@ Download dreamfactory.js and link to it in your html
     var body ={email : $("#email").val(), password : $("#password").val()};
         dreamfactory.user.login(body)
             .then(function (response) {
+            //set session token for upcoming calls
                window.dreamfactory.SESSION_TOKEN = response.session_id;
-                $("#login-form").hide();
-                $("#logout-button").show();
-                $("#password").val("");
                 dreamfactory.db.getRecords({table_name: "todo"});
             }, function (error) {
                //console.log(error);
