@@ -19,6 +19,10 @@ Download dreamfactory.js and link to it in your html
 <script src='path_to_your/jquery.js' type='text/javascript'></script>
 <script src='path_to_your/dreamfactory.js' type='text/javascript'></script>
 ```
+<br/>
+<br/>
+In dreamfactory.js , modify BASE_PATH with your DSP's URL + "/rest"<br/>
+Then change APP_NAME to the name of the app you created on the DSP.<br/>
 
 ```javascript
 //login and get data records on success
