@@ -23,6 +23,22 @@ Download dreamfactory.js and link to it in your html
 ```javascript
 //login and get data records on success
 
+//GET EVERY SERVICE
+dreamfactory.buildAll();
+//GET A FEW
+dreamfactory.build(['user', 'db', 'system']);
+//GET ONE
+dreamfactory.build('user');
+//LISTEN FOR THE LAST RESOURCE YOU CALLED:
+//LISTEN FOR THE RESOURCE YOU WANT TO USE IF YOU DID NOT BUILD ALL
+
+//USE if you included system or are using buildAll
+
+
+$(document).on("api:system:ready", function () {
+//your code here
+};
+
     var body ={email : $("#email").val(), password : $("#password").val()};
         dreamfactory.user.login(body)
             .then(function (response) {
