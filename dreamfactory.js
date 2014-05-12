@@ -1,9 +1,7 @@
 (function () {
-    var BASE_PATH = "Your DSP url + /rest";
-    //for example https://demo.cloud.dreamfactory.com/rest
+    var BASE_PATH = "YOUR_DSP_URL + /rest";
     var DOCS_PATH = "/api_docs/";
-    var APP_NAME = "Your_App_Name_here";
-    var SESSION_TOKEN = "";
+    var APP_NAME = "YOUR_APP_NAME";
     window.dreamfactory = window.dreamfactory || {};
     window.dreamfactory.buildAll = function(){
         $.ajax({
@@ -42,19 +40,28 @@
                 api.operations.forEach(function (method, index) {
                     dreamfactory[resource][method.nickname] = function (data) {
                         data = data || {};
+                        // console.log("method data=" + Object.keys(data));
+
+
                         var pathArray = api.path.split( '/' );
+                        //console.log("pathArray=" + pathArray);
                         var params = Object.keys(data);
+                        //console.log("params = " + params);
                         pathArray.forEach(function(path, index){
-                             var pathVar = path.replace(/[{}]/g, "");
+                            var pathVar = path.replace(/[{}]/g, "");
+                            // console.log("pathVar = " + pathVar);
                             if(params.indexOf(pathVar) != -1){
+                                // console.log("we got one");
                                 pathArray.splice(index, 1, data[pathVar]);
                                 delete data[pathVar];
                             }
                         });
                         var newdata = Object.keys(data).length === 0 ? '' : JSON.stringify(data);
-                        api.path = pathArray.join("/");
+                        //console.log(newdata);
+                        var newPath = pathArray.join("/");
+                        // console.log("path=" + api.path)
                         return $.ajax({
-                            url: BASE_PATH + api.path,
+                            url: BASE_PATH + newPath,
                             beforeSend: function (request) {
                                 request.setRequestHeader("X-DREAMFACTORY-APPLICATION-NAME", APP_NAME);
                                 request.setRequestHeader("X-DREAMFACTORY-SESSION-TOKEN", dreamfactory.SESSION_TOKEN);
@@ -65,7 +72,8 @@
                             contentType: "application/json; charset=utf-8",
                             dataType: "json",
                             processData : false,
-                            data: newdata
+                            data: newdata,
+                            cache: false
                         });
                     };
 //
