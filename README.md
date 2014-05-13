@@ -5,7 +5,7 @@ new-javascript-sdk
 
 New Features:
 <ol>
-<li>Promises df.resource.methodName().then() ...etc
+<li>Promises : dreamfactory.resource.methodName().then() ...etc
 <li>Build All, Some, or One of the Resource SDKs
 <li>Error Handling
 </ol>
