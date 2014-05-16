@@ -64,7 +64,7 @@
                             url: BASE_PATH + newPath,
                             beforeSend: function (request) {
                                 request.setRequestHeader("X-DREAMFACTORY-APPLICATION-NAME", APP_NAME);
-                                request.setRequestHeader("X-DREAMFACTORY-SESSION-TOKEN", dreamfactory.SESSION_TOKEN);
+                                request.setRequestHeader("X-DREAMFACTORY-SESSION-TOKEN", sessionStorage.SESSION_TOKEN);
                                 request.setRequestHeader("Content-Type","application/json");
                                 request.setRequestHeader("Accept","application/json");
                             },
